@@ -1,43 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+import { reactive } from "vue";
 
 defineProps({
-  msg: String,
-})
+  number: Number,
+});
 
-const count = ref(0)
+const data = reactive({
+  owner: "John Stone",
+});
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+    <span class="card-text">CARD-{{ number }}</span>
   </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  width: 224px;
+  padding: 24px 80px;
+
+  border: var(--border);
+  background-color: var(--base);
+  border-radius: 15px;
+}
+.card-text {
+  font-size: 32px;
 }
 </style>
